@@ -169,7 +169,7 @@ class SpatialJoinIterator<T> implements Iterator<T>
                 @Override
                 public void add(Record left, Record right)
                 {
-                    if (filter.overlap(querySpatialObject, right)) {
+                    if (filter.overlap(left, right)) {
                         pending.add(outputGenerator.generateOutput(left, right));
                     }
                 }
@@ -183,7 +183,7 @@ class SpatialJoinIterator<T> implements Iterator<T>
                 @Override
                 public void add(Record right, Record left)
                 {
-                    if (filter.overlap(querySpatialObject, right)) {
+                    if (filter.overlap(left, right)) {
                         pending.add(outputGenerator.generateOutput(left, right));
                     }
                 }
